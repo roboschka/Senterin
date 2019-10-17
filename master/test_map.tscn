@@ -494,7 +494,6 @@ position = Vector2( 1640, 200 )
 position = Vector2( 3064, 56 )
 
 [node name="hidden_tiles" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="hidden_tile" parent="hidden_tiles" instance=ExtResource( 6 )]
 position = Vector2( 456, 200 )

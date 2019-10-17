@@ -164,7 +164,7 @@ func _on_Area2D_area_entered(area):
 
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("motor_oil") and status.has("slippery"):
-		status_timer.start(3)
+		status_timer.start(0.1)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "die":
