@@ -1,5 +1,3 @@
-### fix status implementation ###
-
 extends KinematicBody2D
 
 var move_input = 0
@@ -20,30 +18,32 @@ export var jump_speed = 200
 var is_jumping = false
 var jump_hold = true
 
+var standing_on = []
 var status = []
 var disable_input = false
 var disable_horizontal_movement = false
-var action_on_cooldown = false
-
 var star = 0
+var state = "idle"
 
+onready var sprite = $Sprite
 onready var small_jump_timer = $small_jump_timer
 onready var full_jump_timer = $full_jump_timer
-onready var status_timer = $status_timer
+onready var standing_on_area = $Area2D3
 onready var anim = $AnimationPlayer
 onready var label = $Label
 onready var light = $Light2D
-#onready var light_area = $Area2D2
+onready var light_area = $Area2D2
 onready var light_area_shape = $Area2D2/CollisionPolygon2D
-onready var light_duration_timer = $light_duration_timer
-onready var light_cooldown_timer = $light_cooldown_timer
 
 func _process(delta):
+	_flip()
 	_status()
+	_state_machine()
 	_debug()
 
 func _physics_process(delta):
 	_movement()
+	_standing_on()
 
 func _input(event):
 	if !disable_input:
@@ -68,12 +68,15 @@ func _input(event):
 			jump_hold = false
 		
 		#action
-		if Input.is_action_just_pressed("action") and action_on_cooldown == false:
-			light.visible = true
-#			light_area.monitorable = true
-			light_area_shape.set_deferred("disabled", false)
-			action_on_cooldown = true
-			light_duration_timer.start(3)
+		if Input.is_action_just_pressed("action"):
+			if light.visible == false:
+				light.visible = true
+	#			light_area.monitorable = true
+				light_area_shape.set_deferred("disabled", false)
+			else:
+				light.visible = false
+	#			light_area.monitorable = false
+				light_area_shape.set_deferred("disabled", true)
 
 func _movement():
 	#gravity
@@ -119,9 +122,6 @@ func _reset_action():
 	light.visible = false
 #	light_area.monitorable = false
 	light_area_shape.set_deferred("disabled", true)
-	action_on_cooldown = false
-	light_duration_timer.stop()
-	light_cooldown_timer.stop()
 
 func _die():
 	_clear_status()
@@ -129,7 +129,7 @@ func _die():
 	velocity = Vector2(0, velocity.y)
 	disable_input = true
 	disable_horizontal_movement = true
-	anim.play("die")
+	_respawn()
 
 func _respawn():
 	if get_parent():
@@ -138,14 +138,66 @@ func _respawn():
 		position = get_parent().get_node("respawn_position").position
 		disable_input = false
 		disable_horizontal_movement = false
-		anim.play("normal")
 
 func _status():
+	# checking for status infliction
+	if standing_on.has("motor_oil") and !status.has("slippery"):
+		status.append("slippery")
+	elif !standing_on.has("motor_oil") and status.has("slippery"):
+		status.erase("slippery")
+	
+	# applying status
 	if !status.empty():
 		if status.has("slippery"):
 			walk_accel = WALK_ACCEL_OIL
 			walk_speed = WALK_SPEED_OIL
 			friction = FRICTION_OIL
+		else: # *got something to do with multiple status
+			walk_accel = WALK_ACCEL_NORMAL
+			walk_speed = WALK_SPEED_NORMAL
+			friction = FRICTION_NORMAL
+	else:
+		walk_accel = WALK_ACCEL_NORMAL
+		walk_speed = WALK_SPEED_NORMAL
+		friction = FRICTION_NORMAL
+
+func _standing_on():
+	if !standing_on_area.get_overlapping_bodies().empty():
+		for i in standing_on_area.get_overlapping_bodies():
+			if i.is_in_group("motor_oil") and !standing_on.has("motor_oil"):
+				standing_on.push_front("motor_oil")
+	elif standing_on_area.get_overlapping_bodies().empty():
+		standing_on.clear()
+
+func _flip():
+	if move_input == -1 and !sprite.flip_h:
+		sprite.flip_h = true
+	if move_input == 1 and sprite.flip_h:
+		sprite.flip_h = false
+
+func _state_machine():
+	match state:
+		"idle":
+			if move_input != 0:
+				state = "walk"
+			if velocity.y != 0:
+				state = "jump"
+			if standing_on.has("motor_oil"):
+				state = "slip"
+		"walk":
+			if move_input == 0:
+				state = "idle"
+			if velocity.y != 0:
+				state = "jump"
+			if standing_on.has("motor_oil"):
+				state = "slip"
+		"jump":
+			if velocity.y == 0:
+				state = "idle"
+		"slip":
+			if !standing_on.has("motor_oil"):
+				state = "idle"
+	anim.play(state)
 
 func _on_small_jump_timer_timeout():
 	if !jump_hold:
@@ -157,40 +209,15 @@ func _on_full_jump_timer_timeout():
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("destroyer"):
 		_die()
-	if area.is_in_group("motor_oil") and is_on_floor() and !status.has("slippery"):
-		status.push_front("slippery")
 	if area.is_in_group("star"):
 		star += 1
 
-func _on_Area2D_area_exited(area):
-	if area.is_in_group("motor_oil") and status.has("slippery"):
-		status_timer.start(0.1)
-
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "die":
-		_respawn()
-
-func _on_status_timer_timeout():
-	#need to be changed if there's a way to cancel any status
-	if status.pop_front() == "slippery":
-		walk_accel = WALK_ACCEL_NORMAL
-		walk_speed = WALK_SPEED_NORMAL
-		friction = FRICTION_NORMAL
-
-func _on_light_duration_timer_timeout():
-	light.visible = false
-#	light_area.monitorable = false
-	light_area_shape.set_deferred("disabled",  true)
-	light_cooldown_timer.start(6)
-
-func _on_light_cooldown_timer_timeout():
-	action_on_cooldown = false
+	pass
 
 func _debug():
 	label.text = "status : " +str(status)
-	label.text += "\n" + "star : " + str(star) 
-	label.text += "\n" + "duration : " + str(stepify(light_duration_timer.time_left, 0.1))
-	label.text += "\n" + "cooldown : " + str(stepify(light_cooldown_timer.time_left, 0.1))
+	label.text += "\n" + "star : " + str(star)
 
 
 

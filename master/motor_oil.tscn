@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://test_atlas.png" type="Texture" id=1]
 
@@ -8,10 +8,9 @@ extents = Vector2( 8, 8 )
 [sub_resource type="OccluderPolygon2D" id=2]
 polygon = PoolVector2Array( -8, -8, 8, -8, 8, 8, -8, 8 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 1 )
-
-[node name="motor_oil" type="StaticBody2D"]
+[node name="motor_oil" type="StaticBody2D" groups=[
+"motor_oil",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -23,11 +22,3 @@ occluder = SubResource( 2 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 48, 0, 16, 16 )
-
-[node name="Area2D" type="Area2D" parent="." groups=[
-"motor_oil",
-]]
-position = Vector2( 0, -9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 3 )

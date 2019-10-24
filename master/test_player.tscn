@@ -1,37 +1,43 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://test_player.gd" type="Script" id=1]
-[ext_resource path="res://test_atlas.png" type="Texture" id=2]
+[ext_resource path="res://player.png" type="Texture" id=2]
 [ext_resource path="res://pixel_1.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://light.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 7.9
-height = 0.0
+radius = 7.0
+height = 6.0
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 8 )
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 7.0
+height = 6.0
 
-[sub_resource type="Animation" id=3]
-resource_name = "die"
-length = 0.4
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 0.5
+loop = true
+step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( -2, -2 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"times": PoolRealArray( 0, 0.2, 0.4, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "normal"
+[sub_resource type="Animation" id=5]
+resource_name = "jump"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -39,8 +45,44 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "slip"
+length = 0.21
+loop = true
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 10, 11 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "walk"
+length = 0.7
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.35, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
 }
 
 [node name="KinematicBody2D" type="KinematicBody2D" groups=[
@@ -50,11 +92,14 @@ collision/safe_margin = 0.02
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -10 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="." groups=[
 "player",
 ]]
+editor/display_folded = true
+position = Vector2( 0, -10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
@@ -62,15 +107,24 @@ shape = SubResource( 2 )
 [node name="Area2D2" type="Area2D" parent="." groups=[
 "light",
 ]]
+position = Vector2( 0, -8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
 visible = false
-polygon = PoolVector2Array( 0, -64, 32, -55, 55, -33, 64, 0, 55, 33, 30, 57, 0, 64, -33, 55, -56, 32, -64, 0, -9, 9, 9, 9, 9, -9, -9, -9, -9, 9, -64, 0, -55, -33, -30, -56 )
+polygon = PoolVector2Array( 0, -64, 32, -55, 55, -33, 64, 0, 55, 33, 30, 57, 0, 64, -33, 55, -56, 32, -64, 0, -16, 11, 16, 11, 16, -23, -16, -23, -16, 11, -64, 0, -55, -33, -30, -56 )
 disabled = true
 
+[node name="Area2D3" type="Area2D" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+shape = SubResource( 3 )
+
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
-region_enabled = true
+hframes = 12
+frame = 10
 region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="small_jump_timer" type="Timer" parent="."]
@@ -79,45 +133,38 @@ one_shot = true
 [node name="full_jump_timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="status_timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="light_duration_timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="light_cooldown_timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 process_mode = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "normal"
-anims/die = SubResource( 3 )
-anims/normal = SubResource( 4 )
+autoplay = "idle"
+anims/idle = SubResource( 4 )
+anims/jump = SubResource( 5 )
+anims/slip = SubResource( 6 )
+anims/walk = SubResource( 7 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -24.0
-margin_top = -18.0
+margin_top = -30.0
 margin_right = 24.0
-margin_bottom = -10.0
+margin_bottom = -22.0
 grow_vertical = 0
 custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.858824, 0.858824, 0.858824, 1 )
 align = 1
 valign = 1
 autowrap = true
 
 [node name="Light2D" type="Light2D" parent="."]
 visible = false
+position = Vector2( 0, -6 )
 texture = ExtResource( 4 )
+color = Color( 1, 0.733333, 0.0980392, 1 )
+energy = 1.35
 shadow_enabled = true
+shadow_gradient_length = 0.3
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="timeout" from="small_jump_timer" to="." method="_on_small_jump_timer_timeout"]
 [connection signal="timeout" from="full_jump_timer" to="." method="_on_full_jump_timer_timeout"]
-[connection signal="timeout" from="status_timer" to="." method="_on_status_timer_timeout"]
-[connection signal="timeout" from="light_duration_timer" to="." method="_on_light_duration_timer_timeout"]
-[connection signal="timeout" from="light_cooldown_timer" to="." method="_on_light_cooldown_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
