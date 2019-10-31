@@ -13,6 +13,7 @@ extents = Vector2( 8, 8 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 32, 0, 16, 16 )

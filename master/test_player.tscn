@@ -107,11 +107,12 @@ shape = SubResource( 2 )
 [node name="Area2D2" type="Area2D" parent="." groups=[
 "light",
 ]]
+editor/display_folded = true
+visible = false
 position = Vector2( 0, -8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
-visible = false
-polygon = PoolVector2Array( 0, -64, 32, -55, 55, -33, 64, 0, 55, 33, 30, 57, 0, 64, -33, 55, -56, 32, -64, 0, -16, 11, 16, 11, 16, -23, -16, -23, -16, 11, -64, 0, -55, -33, -30, -56 )
+polygon = PoolVector2Array( 0, -64, 32, -55, 55, -33, 64, 0, 55, 33, 30, 57, 0, 64, -33, 55, -56, 32, -64, 0, -16, 11, 16, 11, 16, -24, -16, -24, -16, 11, -64, 0, -55, -33, -30, -56 )
 disabled = true
 
 [node name="Area2D3" type="Area2D" parent="."]

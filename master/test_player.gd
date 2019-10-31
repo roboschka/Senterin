@@ -162,12 +162,11 @@ func _status():
 		friction = FRICTION_NORMAL
 
 func _standing_on():
+	standing_on.clear()
 	if !standing_on_area.get_overlapping_bodies().empty():
 		for i in standing_on_area.get_overlapping_bodies():
 			if i.is_in_group("motor_oil") and !standing_on.has("motor_oil"):
 				standing_on.push_front("motor_oil")
-	elif standing_on_area.get_overlapping_bodies().empty():
-		standing_on.clear()
 
 func _flip():
 	if move_input == -1 and !sprite.flip_h:
@@ -218,6 +217,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _debug():
 	label.text = "status : " +str(status)
 	label.text += "\n" + "star : " + str(star)
+	label.text += "\n" + str(standing_on)
 
 
 
