@@ -5,6 +5,7 @@ var velocity = Vector2()
 var accel = 4
 var speed = 32
 var state = "hiding"
+var anim_done = true
 
 onready var detection_area = $detection_area
 onready var anim = $AnimationPlayer
@@ -25,11 +26,12 @@ func _flip():
 func _state_machine():
 	match state:
 		"hiding":
-			if anim.current_animation_position == anim.current_animation_length and _player_trigger():
+			if anim_done and _player_trigger():
+				anim_done = false
 				state = "appearing"
 				anim.play("appearing")
 		"appearing":
-			if anim.current_animation_position == anim.current_animation_length:
+			if anim_done:
 				state = "chasing"
 		"chasing":
 			if !_player_trigger():
@@ -56,6 +58,7 @@ func _state_machine():
 			if _player_trigger():
 				state = "chasing"
 			if temp.abs() <= Vector2(1, 1):
+				anim_done = false
 				state = "hiding"
 				anim.play("hiding")
 			if abs(temp.x) >= 4:
@@ -79,3 +82,6 @@ func _player_trigger():
 		if i.is_in_group("player") and i.light.visible == true:
 			return i
 	return false
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	anim_done = true

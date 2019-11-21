@@ -15,20 +15,26 @@ _global_script_class_icons={
 
 [application]
 
-config/name="test"
-run/main_scene="res://test_map.tscn"
+config/name="senterin"
+run/main_scene="res://level_1/level_1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 global="*res://global.gd"
 
+[debug]
+
+settings/fps/force_fps=30
+settings/stdout/print_fps=true
+
 [display]
 
-window/size/width=512
-window/size/height=288
-window/size/resizable=false
-window/stretch/mode="viewport"
+window/size/width=384
+window/size/height=216
+window/size/fullscreen=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [importer_defaults]
 
@@ -40,7 +46,7 @@ texture={
 "compress/normal_map": 0,
 "detect_3d": false,
 "flags/anisotropic": false,
-"flags/filter": false,
+"flags/filter": true,
 "flags/mipmaps": false,
 "flags/repeat": 0,
 "flags/srgb": 2,
@@ -78,12 +84,40 @@ full_screen_toggle={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":true,"meta":false,"command":true,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
  ]
 }
-action={
+flashlight={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
+1={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":49,"unicode":0,"echo":false,"script":null)
+ ]
+}
+2={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":50,"unicode":0,"echo":false,"script":null)
+ ]
+}
+3={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":51,"unicode":0,"echo":false,"script":null)
+ ]
+}
+4={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":52,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[physics]
+
+common/physics_fps=30
 
 [rendering]
 

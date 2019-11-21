@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://hidden_tile.gd" type="Script" id=1]
-[ext_resource path="res://test_atlas.png" type="Texture" id=2]
+[ext_resource path="res://level_1/hidden_tile.gd" type="Script" id=1]
+[ext_resource path="res://level_1/test_atlas.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -45,6 +45,7 @@ tracks/0/keys = {
 }
 
 [node name="hidden_tile" type="StaticBody2D"]
+use_parent_material = true
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )
@@ -63,6 +64,7 @@ occluder = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
+use_parent_material = true
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 16, 0, 16, 16 )

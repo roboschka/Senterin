@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://test_atlas.png" type="Texture" id=1]
+[ext_resource path="res://level_1/test_atlas.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -11,6 +11,7 @@ polygon = PoolVector2Array( -8, -8, 8, -8, 8, 8, -8, 8 )
 [node name="motor_oil" type="StaticBody2D" groups=[
 "motor_oil",
 ]]
+use_parent_material = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -19,6 +20,7 @@ shape = SubResource( 1 )
 occluder = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+use_parent_material = true
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 48, 0, 16, 16 )

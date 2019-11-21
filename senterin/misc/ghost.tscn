@@ -1,7 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://ghost.gd" type="Script" id=1]
-[ext_resource path="res://ghost.png" type="Texture" id=2]
+[ext_resource path="res://misc/ghost.gd" type="Script" id=1]
+[ext_resource path="res://misc/ghost.png" type="Texture" id=2]
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
@@ -53,7 +55,6 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.501961 )
 texture = ExtResource( 2 )
 
 [node name="hitbox" type="Area2D" parent="." groups=[
@@ -75,3 +76,4 @@ shape = SubResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/appearing = SubResource( 4 )
 anims/hiding = SubResource( 5 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

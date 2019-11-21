@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://test_atlas.png" type="Texture" id=1]
+[ext_resource path="res://level_1/test_atlas.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 6 )
@@ -30,6 +30,7 @@ extents = Vector2( 8, 2 )
 [node name="exposed_electric" type="Area2D" groups=[
 "destroyer",
 ]]
+use_parent_material = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -38,11 +39,13 @@ shape = SubResource( 1 )
 occluder = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+use_parent_material = true
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 16, 16, 16 )
 
 [node name="Sprite2" type="Sprite" parent="."]
+use_parent_material = true
 position = Vector2( 0, 6 )
 scale = Vector2( 1, 0.25 )
 texture = ExtResource( 1 )

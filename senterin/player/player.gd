@@ -49,9 +49,9 @@ func _input(event):
 	if !disable_input:
 		#horizontal_movement
 		if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
-			if Input.is_action_pressed("left") and Input.is_action_pressed("right"):
-				move_input = 0
-			elif Input.is_action_pressed("left"):
+#			if Input.is_action_pressed("left") and Input.is_action_pressed("right"):
+#				move_input = 0
+			if Input.is_action_pressed("left"):
 				move_input = -1
 			elif Input.is_action_pressed("right"):
 				move_input = 1
@@ -68,13 +68,13 @@ func _input(event):
 			jump_hold = false
 		
 		#action
-		if Input.is_action_just_pressed("action"):
-			if light.visible == false:
-				light.visible = true
+		if Input.is_action_just_pressed("flashlight"):
+			if !light.is_enabled():
+				light.set_deferred("enabled",true)
 	#			light_area.monitorable = true
 				light_area_shape.set_deferred("disabled", false)
 			else:
-				light.visible = false
+				light.set_deferred("enabled",false)
 	#			light_area.monitorable = false
 				light_area_shape.set_deferred("disabled", true)
 
@@ -119,7 +119,7 @@ func _clear_status():
 	status.clear()
 
 func _reset_action():
-	light.visible = false
+	light.set_deferred("enabled", false)
 #	light_area.monitorable = false
 	light_area_shape.set_deferred("disabled", true)
 
@@ -218,6 +218,9 @@ func _debug():
 	label.text = "status : " +str(status)
 	label.text += "\n" + "star : " + str(star)
 	label.text += "\n" + str(standing_on)
+	label.text += "\n" + "input pressed : " + str(Input.is_action_pressed("flashlight"))
+	label.text += "\n" + "light.enabled : " + str(light.enabled)
+	
 
 
 
