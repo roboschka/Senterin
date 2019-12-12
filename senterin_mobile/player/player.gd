@@ -149,6 +149,7 @@ func _respawn():
 		position = get_parent().get_node("respawn_position").position
 		disable_input = false
 		disable_horizontal_movement = false
+		get_tree().reload_current_scene()
 
 func _status():
 	# checking for status infliction
