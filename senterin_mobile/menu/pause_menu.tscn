@@ -42,9 +42,12 @@ margin_right = 300.0
 margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 1
 
 [node name="button_back" parent="menu/centre_row/buttons" instance=ExtResource( 3 )]
+margin_top = 52.0
 margin_right = 300.0
+margin_bottom = 72.0
 
 [node name="TileMap" parent="." instance=ExtResource( 4 )]
 modulate = Color( 1, 1, 1, 0.784314 )
