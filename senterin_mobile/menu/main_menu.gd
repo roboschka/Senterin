@@ -3,6 +3,7 @@ extends Control
 
 var scene_path_to_load
 func _ready():
+	# Test
 	$FadeOut.show()
 	$FadeOut.fade_out()
 	for button in $menu/center_row/buttons.get_children():
