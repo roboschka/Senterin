@@ -9,6 +9,9 @@ export var door:PackedScene
 export var destination:PackedScene
 export var battery:PackedScene
 export var hole_destroyer:PackedScene
+export var checkpoint:PackedScene
+
+var batteries_coordinates = []
 
 func _set_playable(value):
 	if Engine.editor_hint:

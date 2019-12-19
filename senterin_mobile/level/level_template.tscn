@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=118 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://map_element/Sprite-0003.png" type="Texture" id=2]
@@ -18,7 +18,8 @@
 [ext_resource path="res://level/level_1_1.tscn" type="PackedScene" id=16]
 [ext_resource path="res://map_element/battery.tscn" type="PackedScene" id=17]
 [ext_resource path="res://map_element/hole_destroyer.tscn" type="PackedScene" id=18]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=19]
+[ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=19]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=20]
 
 [sub_resource type="TileSet" id=1]
 0/name = "background"
@@ -1052,7 +1053,6 @@ tile_set = SubResource( 96 )
 cell_size = Vector2( 16, 16 )
 format = 1
 script = ExtResource( 11 )
-playable = false
 exposed_electric = ExtResource( 12 )
 motor_oil = ExtResource( 13 )
 hidden_tile = ExtResource( 14 )
@@ -1060,6 +1060,7 @@ door = ExtResource( 15 )
 destination = ExtResource( 16 )
 battery = ExtResource( 17 )
 hole_destroyer = ExtResource( 18 )
+checkpoint = ExtResource( 19 )
 
 [node name="special" type="TileMap" parent="."]
 material = ExtResource( 1 )
@@ -1069,4 +1070,4 @@ format = 1
 
 [node name="map_element" type="Node2D" parent="."]
 
-[node name="player" parent="." instance=ExtResource( 19 )]
+[node name="player" parent="." instance=ExtResource( 20 )]
