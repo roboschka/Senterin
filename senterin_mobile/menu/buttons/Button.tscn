@@ -2,6 +2,8 @@
 
 [ext_resource path="res://menu/pixel-1-14.tres" type="DynamicFont" id=1]
 
+
+
 [node name="Button" type="Button"]
 margin_right = 100.0
 margin_bottom = 40.0
