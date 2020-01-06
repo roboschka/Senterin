@@ -3,6 +3,7 @@ extends TileMap
 
 export var playable:bool = false setget _set_playable
 export var exposed_electric:PackedScene
+export var exposed_electric_vertical:PackedScene
 export var motor_oil:PackedScene
 export var hidden_tile:PackedScene
 export var door:PackedScene
@@ -10,8 +11,6 @@ export var destination:PackedScene
 export var battery:PackedScene
 export var hole_destroyer:PackedScene
 export var checkpoint:PackedScene
-
-var batteries_coordinates = []
 
 func _set_playable(value):
 	if Engine.editor_hint:
@@ -21,11 +20,18 @@ func _set_playable(value):
 			# exposed_electric
 			for i in get_used_cells_by_id(3):
 				# instance
-				var new_exposed_electric = exposed_electric.instance()
-				new_exposed_electric.set_name("exposed_electric")
-				new_exposed_electric.position = map_to_world(i) + Vector2(8, 8)
-				map_element.add_child(new_exposed_electric)
-				new_exposed_electric.set_owner(get_parent())
+				if get_cell(i.x, i.y - 1) == 3 or get_cell(i.x, i.y + 1) == 3:
+					var new_exposed_electric = exposed_electric_vertical.instance()
+					new_exposed_electric.set_name("exposed_electric")
+					new_exposed_electric.position = map_to_world(i) + Vector2(8, 8)
+					map_element.add_child(new_exposed_electric)
+					new_exposed_electric.set_owner(get_parent())
+				else:
+					var new_exposed_electric = exposed_electric.instance()
+					new_exposed_electric.set_name("exposed_electric")
+					new_exposed_electric.position = map_to_world(i) + Vector2(8, 8)
+					map_element.add_child(new_exposed_electric)
+					new_exposed_electric.set_owner(get_parent())
 				
 				# remove tiles, because it doesnt use the same visual as the tileset
 				set_cell(i.x, i.y, -1)
@@ -85,6 +91,18 @@ func _set_playable(value):
 				# remove tiles, because it doesnt use the same visual as the tileset
 				set_cell(i.x, i.y, -1)
 			
+			# checkpoint
+			for i in get_used_cells_by_id(10):
+				# instance
+				var new_checkpoint = checkpoint.instance()
+				new_checkpoint.set_name("checkpoint")
+				new_checkpoint.position = map_to_world(i) + Vector2(8, 8)
+				map_element.add_child(new_checkpoint)
+				new_checkpoint.set_owner(get_parent())
+				
+				# remove tiles, because it doesnt use the same visual as the tileset
+				set_cell(i.x, i.y, -1)
+			
 			playable = value
 		else:
 			# only for ones that doesnt used the tileset's visual
@@ -97,7 +115,15 @@ func _set_playable(value):
 					set_cell(world_to_map(i.position).x, world_to_map(i.position).y, 8)
 				if i.is_in_group("hole_destroyer"):
 					set_cell(world_to_map(i.position).x, world_to_map(i.position).y, 9)
+				if i.is_in_group("checkpoint"):
+					set_cell(world_to_map(i.position).x, world_to_map(i.position).y, 10)
 				
 				i.queue_free()
 			
 			playable = value
+
+
+
+
+
+

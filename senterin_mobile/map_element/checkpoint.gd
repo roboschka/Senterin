@@ -1,6 +1,8 @@
 extends Area2D
+ 
+onready var anim = $AnimationPlayer
 
 func _on_checkpoint_body_entered(body):
 	if body.is_in_group("player"):
-		if get_parent() != null:
-			get_parent().respawn()
+		
+		anim.play("lit")

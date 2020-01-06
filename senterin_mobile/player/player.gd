@@ -18,14 +18,16 @@ export var jump_accel = 50
 export var jump_speed = 200
 var is_jumping = false
 var jump_hold = true
-var battery_duration = 0
 
+var battery_duration = 0
 var standing_on = []
 var status = []
 var disable_input = false
 var disable_horizontal_movement = false
 var star = 0
 var state = "idle"
+var current_checkpoint
+var batteries_coordinate = []
 
 onready var sprite = $Sprite
 onready var small_jump_timer = $small_jump_timer
@@ -146,10 +148,17 @@ func _respawn():
 	if get_parent():
 		move_input = 0
 		velocity = Vector2(0, 0)
-		position = get_parent().get_node("respawn_position").position
 		disable_input = false
 		disable_horizontal_movement = false
-		get_tree().reload_current_scene()
+		
+		if current_checkpoint == null:
+			position = get_parent().get_node("respawn_position").position
+			get_tree().reload_current_scene()
+		else:
+			position = current_checkpoint.position
+			get_parent().get_node("map_element")._respawn_batteries(batteries_coordinate)
+			battery_duration -= batteries_coordinate.size() * 10
+			batteries_coordinate.clear()
 
 func _status():
 	# checking for status infliction
@@ -288,12 +297,25 @@ func _on_Area2D_area_entered(area):
 	if area.is_in_group("star"):
 		star += 1
 	if area.is_in_group("battery"):
-		if !battery_timer.is_stopped():
-			battery_timer.stop()
-			battery_duration += 10
-			battery_timer.start(battery_duration)
+		if current_checkpoint != null:
+			if !battery_timer.is_stopped():
+				battery_timer.stop()
+				battery_duration += 10
+				battery_timer.start(battery_duration)
+			else:
+				battery_duration += 10
+			batteries_coordinate.append(area.position)
 		else:
-			battery_duration += 10
+			if !battery_timer.is_stopped():
+				battery_timer.stop()
+				battery_duration += 10
+				battery_timer.start(battery_duration)
+			else:
+				battery_duration += 10
+	if area.is_in_group("checkpoint"):
+		if current_checkpoint != area:
+			current_checkpoint = area
+			batteries_coordinate.clear()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	pass
