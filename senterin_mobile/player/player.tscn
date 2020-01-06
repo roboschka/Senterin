@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -20,7 +20,23 @@ extents = Vector2( 7, 10 )
 extents = Vector2( 8, 1 )
 
 [sub_resource type="Animation" id=4]
-resource_name = "idle"
+resource_name = "fried"
+length = 1.49
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.28, 0.38, 0.48, 0.68, 0.74, 0.89, 1.04, 1.19, 1.34 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 ]
+}
+
+[sub_resource type="Animation" id=5]
 length = 0.5
 loop = true
 step = 0.05
@@ -37,8 +53,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "jump"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -52,8 +67,7 @@ tracks/0/keys = {
 "values": [ 9 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "slip"
+[sub_resource type="Animation" id=7]
 length = 0.21
 loop = true
 step = 0.03
@@ -70,8 +84,7 @@ tracks/0/keys = {
 "values": [ 10, 11 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "walk"
+[sub_resource type="Animation" id=8]
 length = 0.7
 loop = true
 step = 0.05
@@ -88,7 +101,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=9]
 blend_mode = 1
 
 [node name="player" type="KinematicBody2D" groups=[
@@ -133,8 +146,7 @@ shape = SubResource( 3 )
 use_parent_material = true
 position = Vector2( 0, -16 )
 texture = ExtResource( 3 )
-hframes = 12
-frame = 6
+hframes = 23
 region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="small_jump_timer" type="Timer" parent="."]
@@ -152,10 +164,11 @@ process_mode = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/idle = SubResource( 4 )
-anims/jump = SubResource( 5 )
-anims/slip = SubResource( 6 )
-anims/walk = SubResource( 7 )
+anims/fried = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/jump = SubResource( 6 )
+anims/slip = SubResource( 7 )
+anims/walk = SubResource( 8 )
 
 [node name="Label" type="Label" parent="."]
 use_parent_material = true
@@ -183,7 +196,7 @@ shadow_gradient_length = 0.2
 [node name="Sprite2" type="Sprite" parent="."]
 visible = false
 modulate = Color( 1, 0.82605, 0.414063, 0.392157 )
-material = SubResource( 8 )
+material = SubResource( 9 )
 texture = ExtResource( 5 )
 
 [node name="gui" type="CanvasLayer" parent="."]

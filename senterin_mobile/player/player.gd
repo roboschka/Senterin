@@ -217,6 +217,8 @@ func _state_machine():
 		"slip":
 			if !standing_on.has("motor_oil"):
 				state = "idle"
+		"fried":
+			disable_input = true
 	anim.play(state)
 
 func _timer_var_sync():
@@ -292,7 +294,9 @@ func _on_battery_timer_timeout():
 	battery_timer.stop()
 
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("destroyer"):
+	if area.is_in_group("exposed_electric"):
+		state = "fried"
+	if area.is_in_group("hole_destroyer"):
 		_die()
 	if area.is_in_group("star"):
 		star += 1
@@ -318,7 +322,8 @@ func _on_Area2D_area_entered(area):
 			batteries_coordinate.clear()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	pass
+	if anim_name == "fried":
+		_die()
 
 func _debug():
 	label.text = "status : " +str(status)
