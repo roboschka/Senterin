@@ -55,6 +55,7 @@ margin_bottom = 60.0
 margin_top = 64.0
 margin_right = 300.0
 margin_bottom = 124.0
+has_another_scene = 1
 
 [node name="TileMap" parent="." instance=ExtResource( 6 )]
 modulate = Color( 1, 1, 1, 0.784314 )

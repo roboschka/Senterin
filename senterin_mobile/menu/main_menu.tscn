@@ -71,7 +71,6 @@ alignment = 1
 margin_top = 35.0
 margin_right = 284.0
 margin_bottom = 95.0
-has_another_scene = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 material = ExtResource( 5 )
