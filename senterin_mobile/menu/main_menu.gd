@@ -1,5 +1,6 @@
 extends Control
-export var scene_to_load: PackedScene
+
+var scene_to_load = load("res://level/level_1_1.tscn")
 
 func _ready():
 	#Test
