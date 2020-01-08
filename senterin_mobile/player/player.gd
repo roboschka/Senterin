@@ -89,6 +89,11 @@ func _input(event):
 	#			light_area.monitorable = false
 				light_area_shape.set_deferred("disabled", true)
 				battery_timer.stop()
+		
+		#pause
+		if Input.is_action_just_pressed("pause"):
+			get_tree().paused = true
+			$gui/pause_menu.visible = true
 
 func _movement():
 	#gravity

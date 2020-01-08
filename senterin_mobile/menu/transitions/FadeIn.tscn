@@ -2,8 +2,6 @@
 
 [ext_resource path="res://menu/transitions/FadeIn.gd" type="Script" id=1]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
 length = 1.3

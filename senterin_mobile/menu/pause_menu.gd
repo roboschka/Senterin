@@ -12,8 +12,10 @@ func _on_Button_pressed(has_another_scene):
 		$FadeIn.show()
 		$FadeIn.fade_in()
 	else:
-		pass
-		#Resume Game here
+		get_tree().paused = false
+		visible = false
 
 func _on_FadeIn_fade_finished():
+	get_tree().paused = false
+	visible = false
 	get_tree().change_scene_to(scene_to_load)
