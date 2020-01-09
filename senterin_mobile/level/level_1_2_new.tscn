@@ -116,6 +116,7 @@ tile_data = PoolIntArray( 131152, 0, 262148, 196685, 0, 131072, 196686, 0, 0, 19
 [node name="map_element" type="Node2D" parent="."]
 editor/display_folded = true
 script = ExtResource( 15 )
+battery = ExtResource( 11 )
 
 [node name="player" parent="." instance=ExtResource( 16 )]
 position = Vector2( 16.1521, 128.14 )

@@ -161,6 +161,7 @@ func _die():
 	disable_input = true
 	disable_horizontal_movement = true
 	battery_timer.stop()
+	state = "idle"
 	_respawn()
 
 func _respawn():

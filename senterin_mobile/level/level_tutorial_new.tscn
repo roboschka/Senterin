@@ -116,6 +116,7 @@ tile_data = PoolIntArray( 655530, 0, 131076, 721066, 0, 0, 721067, 0, 0, 721068,
 [node name="map_element" type="Node2D" parent="."]
 editor/display_folded = true
 script = ExtResource( 15 )
+battery = ExtResource( 11 )
 
 [node name="exposed_electric" parent="map_element" instance=ExtResource( 5 )]
 position = Vector2( 536, 136 )

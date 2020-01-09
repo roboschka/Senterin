@@ -120,6 +120,7 @@ format = 1
 [node name="map_element" type="Node2D" parent="."]
 editor/display_folded = true
 script = ExtResource( 15 )
+battery = ExtResource( 11 )
 
 [node name="exposed_electric" type="Area2D" parent="map_element" groups=[
 "exposed_electric",
