@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menu/buttons/level_select_button.gd" type="Script" id=1]
 [ext_resource path="res://map_element/door.png" type="Texture" id=2]
 [ext_resource path="res://menu/pixel-1-14.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ui/button_click.wav" type="AudioStream" id=4]
 
 [node name="Button" type="Button"]
 margin_top = 1.0
@@ -32,4 +33,8 @@ custom_fonts/font = ExtResource( 3 )
 text = "TUT"
 align = 1
 valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

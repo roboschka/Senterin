@@ -1,6 +1,7 @@
 extends Node
 
 var multiplier
+var purchased = false
 
 func _ready():
 	multiplier = 3 #int(OS.get_screen_size().x / 512)
