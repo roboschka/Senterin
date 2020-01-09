@@ -2,11 +2,13 @@
 
 importer="wav"
 type="AudioStreamSample"
-valid=false
+path="res://.import/footstep_hiddentiles.wav-ceb3c747ad4e5f291d2491da361a5c6c.sample"
 
 [deps]
 
 source_file="res://player/footstep_hiddentiles.wav"
+dest_files=[ "res://.import/footstep_hiddentiles.wav-ceb3c747ad4e5f291d2491da361a5c6c.sample" ]
+
 [params]
 
 force/8_bit=false

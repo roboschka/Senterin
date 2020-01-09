@@ -810,3 +810,10 @@ position = Vector2( 1064, 424 )
 
 [node name="player" parent="." instance=ExtResource( 14 )]
 position = Vector2( 38.1908, 127.557 )
+walk_accel = 30
+walk_speed = 170
+friction = 30
+gravity_accel = 30
+gravity_speed = 300
+jump_accel = 50
+jump_speed = 200

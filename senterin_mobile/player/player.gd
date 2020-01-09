@@ -1,5 +1,14 @@
 extends KinematicBody2D
 
+var sfxs = {
+	"electrocuted": preload("res://player/electrocuted.wav"),
+	"fall_die": preload("res://player/fall_die.wav"),
+	"flashlight_toggle": preload("res://player/flashlight_toggle.wav"),
+	"battery_insert": preload("res://player/battery_insert.wav"),
+	"footstep": preload("res://player/footstep.wav"),
+	"footstep_hiddentiles": preload("res://player/footstep_hiddentiles.wav")
+}
+
 var move_input = 0
 var velocity = Vector2()
 export var debug = true
@@ -41,6 +50,7 @@ onready var light_area_shape = $Area2D2/CollisionPolygon2D
 onready var battery_timer = $battery_timer
 onready var battery_bars = $gui/battery_ui/bar_container.get_children()
 onready var battery_amount = $gui/battery_ui/Label
+onready var audio = $AudioStreamPlayer
 
 func _process(delta):
 	_flip()
@@ -80,11 +90,15 @@ func _input(event):
 		#action
 		if Input.is_action_just_pressed("flashlight"):
 			if !light.is_visible() and battery_duration > 0:
+				audio.stream = sfxs["flashlight_toggle"]
+				audio.play()
 				light.set_deferred("visible",true)
 	#			light_area.monitorable = true
 				light_area_shape.set_deferred("disabled", false)
 				battery_timer.start(battery_duration)
 			else:
+				audio.stream = sfxs["flashlight_toggle"]
+				audio.play()
 				light.set_deferred("visible",false)
 	#			light_area.monitorable = false
 				light_area_shape.set_deferred("disabled", true)
@@ -193,6 +207,8 @@ func _standing_on():
 		for i in standing_on_area.get_overlapping_bodies():
 			if i.is_in_group("motor_oil") and !standing_on.has("motor_oil"):
 				standing_on.push_front("motor_oil")
+			if i.is_in_group("hidden_tile") and !standing_on.has("hidden_tile"):
+				standing_on.push_front("hidden_tile")
 
 func _flip():
 	if move_input == -1 and !sprite.flip_h:
@@ -284,6 +300,14 @@ func _battery_ui_update():
 			battery_bars[4].visible = true
 	battery_amount.text = "x" + str(int(battery_duration/10))
 
+func _play_footstep():
+	if standing_on.has("hidden_tile"):
+		audio.stream = sfxs["footstep_hiddentiles"]
+		audio.play()
+	else:
+		audio.stream = sfxs["footstep"]
+		audio.play()
+
 func _on_small_jump_timer_timeout():
 	if !jump_hold:
 		is_jumping = false
@@ -300,12 +324,18 @@ func _on_battery_timer_timeout():
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("exposed_electric"):
+		audio.stream = sfxs["electrocuted"]
+		audio.play()
 		state = "fried"
 	if area.is_in_group("hole_destroyer"):
+		audio.stream = sfxs["fall_die"]
+		audio.play()
 		_die()
 	if area.is_in_group("star"):
 		star += 1
 	if area.is_in_group("battery"):
+		audio.stream = sfxs["battery_insert"]
+		audio.play()
 		if current_checkpoint != null:
 			if !battery_timer.is_stopped():
 				battery_timer.stop()

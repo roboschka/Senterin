@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/button_click.wav-31bddd7cf907011dba54959a29ea910c.sample"
+path="res://.import/battery_insert.wav-94c0f120c5023b823dc3aba1ed652d22.sample"
 
 [deps]
 
-source_file="res://menu/buttons/button_click.wav"
-dest_files=[ "res://.import/button_click.wav-31bddd7cf907011dba54959a29ea910c.sample" ]
+source_file="res://player/battery_insert.wav"
+dest_files=[ "res://.import/battery_insert.wav-94c0f120c5023b823dc3aba1ed652d22.sample" ]
 
 [params]
 

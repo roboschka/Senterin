@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://menu/buttons/menu_button.gd" type="Script" id=1]
 [ext_resource path="res://menu/pixel-1-14.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/button_click.wav" type="AudioStream" id=3]
 
 [node name="Button" type="Button"]
 margin_right = 180.0
@@ -20,3 +21,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "EXIT"
 align = 1
 valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

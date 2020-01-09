@@ -1,15 +1,12 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
 [ext_resource path="res://player/player.png" type="Texture" id=3]
 [ext_resource path="res://ui/pixel_1.fnt" type="BitmapFont" id=4]
 [ext_resource path="res://player/light.png" type="Texture" id=5]
-[ext_resource path="res://player/gui.gd" type="Script" id=6]
-[ext_resource path="res://player/button_normal.png" type="Texture" id=7]
-[ext_resource path="res://player/button_pressed.png" type="Texture" id=8]
-[ext_resource path="res://player/battery_ui.tscn" type="PackedScene" id=9]
-[ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://player/gui.tscn" type="PackedScene" id=6]
+[ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 10 )
@@ -18,7 +15,7 @@ extents = Vector2( 7, 10 )
 extents = Vector2( 7, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 1 )
+extents = Vector2( 7, 1 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "fried"
@@ -101,6 +98,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 4, 5, 6, 7 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.15, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_play_footstep"
+}, {
+"args": [  ],
+"method": "_play_footstep"
+} ]
+}
 
 [sub_resource type="CanvasItemMaterial" id=9]
 blend_mode = 1
@@ -138,7 +152,6 @@ polygon = PoolVector2Array( 0, -64, 32, -55, 55, -33, 64, 0, 55, 33, 30, 57, 0, 
 disabled = true
 
 [node name="Area2D3" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 shape = SubResource( 3 )
@@ -148,6 +161,7 @@ use_parent_material = true
 position = Vector2( 0, -16 )
 texture = ExtResource( 3 )
 hframes = 23
+frame = 6
 region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="small_jump_timer" type="Timer" parent="."]
@@ -200,51 +214,12 @@ modulate = Color( 1, 0.82605, 0.414063, 0.392157 )
 material = SubResource( 9 )
 texture = ExtResource( 5 )
 
-[node name="gui" type="CanvasLayer" parent="."]
-script = ExtResource( 6 )
+[node name="gui" parent="." instance=ExtResource( 6 )]
 
-[node name="button_left" type="TouchScreenButton" parent="gui"]
+[node name="pause_menu" parent="gui" instance=ExtResource( 7 )]
 visible = false
-material = ExtResource( 1 )
-position = Vector2( 16, 144 )
-normal = ExtResource( 7 )
-pressed = ExtResource( 8 )
-action = "left"
-visibility_mode = 1
 
-[node name="button_right" type="TouchScreenButton" parent="gui"]
-visible = false
-material = ExtResource( 1 )
-position = Vector2( 80, 144 )
-normal = ExtResource( 7 )
-pressed = ExtResource( 8 )
-action = "right"
-visibility_mode = 1
-
-[node name="button_jump" type="TouchScreenButton" parent="gui"]
-visible = false
-material = ExtResource( 1 )
-position = Vector2( 256, 144 )
-normal = ExtResource( 7 )
-pressed = ExtResource( 8 )
-action = "jump"
-visibility_mode = 1
-
-[node name="button_action" type="TouchScreenButton" parent="gui"]
-visible = false
-material = ExtResource( 1 )
-position = Vector2( 320, 144 )
-normal = ExtResource( 7 )
-pressed = ExtResource( 8 )
-action = "flashlight"
-visibility_mode = 1
-
-[node name="battery_ui" parent="gui" instance=ExtResource( 9 )]
-visible = false
-position = Vector2( 64, 32 )
-
-[node name="pause_menu" parent="gui" instance=ExtResource( 10 )]
-visible = false
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="small_jump_timer" to="." method="_on_small_jump_timer_timeout"]
 [connection signal="timeout" from="full_jump_timer" to="." method="_on_full_jump_timer_timeout"]
