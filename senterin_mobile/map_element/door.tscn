@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://map_element/door.gd" type="Script" id=1]
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=2]
 [ext_resource path="res://map_element/door.png" type="Texture" id=3]
+[ext_resource path="res://menu/transitions/FadeIn.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -16,4 +17,8 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="ColorRect" parent="." instance=ExtResource( 4 )]
+visible = false
 [connection signal="body_entered" from="." to="." method="_on_door_body_entered"]
+[connection signal="fade_finished" from="ColorRect" to="." method="_on_ColorRect_fade_finished"]
