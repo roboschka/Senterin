@@ -244,6 +244,7 @@ visible = false
 position = Vector2( 64, 32 )
 
 [node name="pause_menu" parent="gui" instance=ExtResource( 10 )]
+visible = false
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="small_jump_timer" to="." method="_on_small_jump_timer_timeout"]
 [connection signal="timeout" from="full_jump_timer" to="." method="_on_full_jump_timer_timeout"]

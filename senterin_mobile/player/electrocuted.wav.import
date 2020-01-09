@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/electrocuted.wav-54b8bb09a69124bc91a0a86311581969.sample"
+
+[deps]
+
+source_file="res://player/electrocuted.wav"
+dest_files=[ "res://.import/electrocuted.wav-54b8bb09a69124bc91a0a86311581969.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
