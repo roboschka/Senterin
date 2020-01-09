@@ -15,7 +15,7 @@
 [ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=13]
 [ext_resource path="res://map_element/floor.png" type="Texture" id=14]
 [ext_resource path="res://level/map_element.gd" type="Script" id=15]
-[ext_resource path="res://level/level_1_2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://level/level_1_2_new.tscn" type="PackedScene" id=16]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 
 [sub_resource type="TileSet" id=1]

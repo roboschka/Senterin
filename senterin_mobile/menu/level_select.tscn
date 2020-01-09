@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://menu/level_select.gd" type="Script" id=1]
 [ext_resource path="res://menu/mobile_scroll_container.gd" type="Script" id=2]
@@ -10,7 +10,8 @@
 [ext_resource path="res://menu/buttons/back_button.tscn" type="PackedScene" id=8]
 [ext_resource path="res://menu/main_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://menu/Popup.gd" type="Script" id=10]
-[ext_resource path="res://ui/button_click.wav" type="AudioStream" id=11]
+[ext_resource path="res://ui/pixel_1.fnt" type="BitmapFont" id=11]
+[ext_resource path="res://ui/button_click.wav" type="AudioStream" id=12]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -56,7 +57,6 @@ margin_bottom = 39.3151
 back_scene = ExtResource( 9 )
 
 [node name="Popup" type="AcceptDialog" parent="."]
-visible = true
 margin_left = 417.866
 margin_top = 30.2391
 margin_right = 622.866
@@ -65,14 +65,15 @@ window_title = ""
 dialog_text = "Purchase All Level?"
 script = ExtResource( 10 )
 
-[node name="ToolButton" type="ToolButton" parent="."]
+[node name="purchase_button" type="ToolButton" parent="."]
 margin_left = 5.34335
 margin_top = 191.447
 margin_right = 75.3434
 margin_bottom = 213.447
+custom_fonts/font = ExtResource( 11 )
 text = "Purchase"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 [connection signal="confirmed" from="Popup" to="." method="_on_Popup_confirmed"]
-[connection signal="pressed" from="ToolButton" to="Popup" method="_on_ToolButton_pressed"]
+[connection signal="pressed" from="purchase_button" to="Popup" method="_on_ToolButton_pressed"]
