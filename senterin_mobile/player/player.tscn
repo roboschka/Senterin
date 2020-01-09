@@ -212,6 +212,7 @@ shadow_gradient_length = 0.2
 visible = false
 modulate = Color( 1, 0.82605, 0.414063, 0.392157 )
 material = SubResource( 9 )
+z_index = 1
 texture = ExtResource( 5 )
 
 [node name="gui" parent="." instance=ExtResource( 6 )]
