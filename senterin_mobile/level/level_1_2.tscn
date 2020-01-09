@@ -9,17 +9,7 @@
 [ext_resource path="res://map_element/battery.tscn" type="PackedScene" id=7]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://map_element/door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://level/level_1_3.tscn" type="PackedScene" id=10]
-
-
-
-
-
-
-
-
-
-
+[ext_resource path="res://level/level_1_3_new.tscn" type="PackedScene" id=10]
 
 [node name="level_1_2" type="Node2D"]
 material = ExtResource( 1 )
@@ -855,7 +845,6 @@ position = Vector2( 312, 264 )
 position = Vector2( 328, 264 )
 
 [node name="items" type="Node2D" parent="."]
-editor/display_folded = true
 use_parent_material = true
 
 [node name="battery" parent="items" instance=ExtResource( 7 )]
@@ -872,7 +861,7 @@ position = Vector2( 16, 128 )
 
 [node name="door" parent="." instance=ExtResource( 9 )]
 position = Vector2( 3664, 432 )
-destination_scene = ExtResource( 10 )
+destination = ExtResource( 10 )
 
 [editable path="traps/motor_oil2"]
 

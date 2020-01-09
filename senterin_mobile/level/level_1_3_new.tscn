@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://map_element/Sprite-0003.png" type="Texture" id=2]
@@ -15,7 +15,8 @@
 [ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=13]
 [ext_resource path="res://map_element/floor.png" type="Texture" id=14]
 [ext_resource path="res://level/map_element.gd" type="Script" id=15]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://level/level_2_new.tscn" type="PackedScene" id=16]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 
 [sub_resource type="TileSet" id=1]
 0/name = "background"
@@ -529,7 +530,7 @@ position = Vector2( 1128, 312 )
 
 [node name="door" parent="map_element" instance=ExtResource( 9 )]
 position = Vector2( 3136, 96 )
-destination = ExtResource( 10 )
+destination = ExtResource( 16 )
 
 [node name="battery" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 72, 136 )
@@ -669,5 +670,5 @@ position = Vector2( 1192, 520 )
 [node name="checkpoint" parent="map_element" instance=ExtResource( 13 )]
 position = Vector2( 1656, 200 )
 
-[node name="player" parent="." instance=ExtResource( 16 )]
+[node name="player" parent="." instance=ExtResource( 17 )]
 position = Vector2( 25.9723, 136.595 )
