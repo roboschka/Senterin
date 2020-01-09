@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://map_element/Sprite-0003.png" type="Texture" id=2]
@@ -14,11 +14,12 @@
 [ext_resource path="res://map_element/hole_destroyer.tscn" type="PackedScene" id=12]
 [ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=13]
 [ext_resource path="res://map_element/floor.png" type="Texture" id=14]
-[ext_resource path="res://map_element/hidden_tile.gd" type="Script" id=15]
-[ext_resource path="res://map_element/door.gd" type="Script" id=16]
-[ext_resource path="res://map_element/battery.gd" type="Script" id=17]
-[ext_resource path="res://map_element/checkpoint.gd" type="Script" id=18]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=19]
+[ext_resource path="res://level/map_element.gd" type="Script" id=15]
+[ext_resource path="res://map_element/hidden_tile.gd" type="Script" id=16]
+[ext_resource path="res://map_element/door.gd" type="Script" id=17]
+[ext_resource path="res://map_element/battery.gd" type="Script" id=18]
+[ext_resource path="res://map_element/checkpoint.gd" type="Script" id=19]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=20]
 
 [sub_resource type="TileSet" id=1]
 0/name = "background"
@@ -117,6 +118,8 @@ cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="map_element" type="Node2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 15 )
 
 [node name="exposed_electric" type="Area2D" parent="map_element" groups=[
 "exposed_electric",
@@ -619,7 +622,7 @@ use_parent_material = true
 position = Vector2( 3144, 88 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile2" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -629,7 +632,7 @@ use_parent_material = true
 position = Vector2( 3160, 88 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile3" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -639,7 +642,7 @@ use_parent_material = true
 position = Vector2( 3176, 88 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile4" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -649,7 +652,7 @@ use_parent_material = true
 position = Vector2( 1640, 136 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile5" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -659,7 +662,7 @@ use_parent_material = true
 position = Vector2( 2424, 136 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile6" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -669,7 +672,7 @@ use_parent_material = true
 position = Vector2( 2440, 136 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile7" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -679,7 +682,7 @@ use_parent_material = true
 position = Vector2( 2776, 152 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile8" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -689,7 +692,7 @@ use_parent_material = true
 position = Vector2( 2792, 152 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile9" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -699,7 +702,7 @@ use_parent_material = true
 position = Vector2( 2808, 152 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile10" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -709,7 +712,7 @@ use_parent_material = true
 position = Vector2( 1624, 168 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile11" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -719,7 +722,7 @@ use_parent_material = true
 position = Vector2( 1640, 168 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile12" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -729,7 +732,7 @@ use_parent_material = true
 position = Vector2( 1512, 184 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile13" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -739,7 +742,7 @@ use_parent_material = true
 position = Vector2( 1528, 184 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile14" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -749,7 +752,7 @@ use_parent_material = true
 position = Vector2( 1544, 184 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile15" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -759,7 +762,7 @@ use_parent_material = true
 position = Vector2( 2408, 184 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile16" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -769,7 +772,7 @@ use_parent_material = true
 position = Vector2( 2424, 184 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile17" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -779,7 +782,7 @@ use_parent_material = true
 position = Vector2( 2440, 184 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile18" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -789,7 +792,7 @@ use_parent_material = true
 position = Vector2( 456, 200 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile19" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -799,7 +802,7 @@ use_parent_material = true
 position = Vector2( 1112, 200 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile20" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -809,7 +812,7 @@ use_parent_material = true
 position = Vector2( 456, 216 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile21" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -819,7 +822,7 @@ use_parent_material = true
 position = Vector2( 616, 216 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile22" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -829,7 +832,7 @@ use_parent_material = true
 position = Vector2( 968, 216 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile23" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -839,7 +842,7 @@ use_parent_material = true
 position = Vector2( 1096, 216 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile24" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -849,7 +852,7 @@ use_parent_material = true
 position = Vector2( 1112, 216 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile25" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -859,7 +862,7 @@ use_parent_material = true
 position = Vector2( 792, 232 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile26" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -869,7 +872,7 @@ use_parent_material = true
 position = Vector2( 952, 232 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile27" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -879,7 +882,7 @@ use_parent_material = true
 position = Vector2( 968, 232 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile28" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -889,7 +892,7 @@ use_parent_material = true
 position = Vector2( 792, 248 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile29" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -899,7 +902,7 @@ use_parent_material = true
 position = Vector2( 808, 248 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile30" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -909,7 +912,7 @@ use_parent_material = true
 position = Vector2( 936, 248 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile31" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -919,7 +922,7 @@ use_parent_material = true
 position = Vector2( 952, 248 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="hidden_tile32" type="StaticBody2D" parent="map_element" groups=[
 "hidden_tile",
@@ -929,42 +932,42 @@ use_parent_material = true
 position = Vector2( 968, 248 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="door" type="Area2D" parent="map_element" instance=ExtResource( 9 )]
 position = Vector2( 3328, 64 )
-script = ExtResource( 16 )
+script = ExtResource( 17 )
 destination = ExtResource( 10 )
 
 [node name="battery" type="Area2D" parent="map_element" groups=[
 "battery",
 ] instance=ExtResource( 11 )]
 position = Vector2( 2600, 88 )
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="battery2" type="Area2D" parent="map_element" groups=[
 "battery",
 ] instance=ExtResource( 11 )]
 position = Vector2( 552, 104 )
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="battery3" type="Area2D" parent="map_element" groups=[
 "battery",
 ] instance=ExtResource( 11 )]
 position = Vector2( 1096, 120 )
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="battery4" type="Area2D" parent="map_element" groups=[
 "battery",
 ] instance=ExtResource( 11 )]
 position = Vector2( 1448, 248 )
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="battery5" type="Area2D" parent="map_element" groups=[
 "battery",
 ] instance=ExtResource( 11 )]
 position = Vector2( 2136, 248 )
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="hole_destroyer" type="Area2D" parent="map_element" groups=[
 "hole_destroyer",
@@ -1414,9 +1417,9 @@ position = Vector2( 2280, 456 )
 "checkpoint",
 ] instance=ExtResource( 13 )]
 position = Vector2( 1672, 104 )
-script = ExtResource( 18 )
+script = ExtResource( 19 )
 
-[node name="player" parent="." instance=ExtResource( 19 )]
+[node name="player" parent="." instance=ExtResource( 20 )]
 position = Vector2( 38.1908, 127.557 )
 [connection signal="body_entered" from="map_element/door" to="map_element/door" method="_on_door_body_entered"]
 [connection signal="area_entered" from="map_element/battery" to="map_element/battery" method="_on_battery_area_entered"]

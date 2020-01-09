@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "lit"
 length = 0.4
 loop = true
@@ -24,8 +24,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "unlit"
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -55,6 +54,6 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "unlit"
-anims/lit = SubResource( 3 )
-anims/unlit = SubResource( 2 )
+anims/lit = SubResource( 2 )
+anims/unlit = SubResource( 3 )
 [connection signal="body_entered" from="." to="." method="_on_checkpoint_body_entered"]

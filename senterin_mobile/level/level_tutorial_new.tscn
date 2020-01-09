@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://map_element/Sprite-0003.png" type="Texture" id=2]
@@ -14,7 +14,8 @@
 [ext_resource path="res://map_element/hole_destroyer.tscn" type="PackedScene" id=12]
 [ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=13]
 [ext_resource path="res://map_element/floor.png" type="Texture" id=14]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=15]
+[ext_resource path="res://level/map_element.gd" type="Script" id=15]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
 
 [sub_resource type="TileSet" id=1]
 0/name = "background"
@@ -114,6 +115,7 @@ tile_data = PoolIntArray( 655530, 0, 131076, 721066, 0, 0, 721067, 0, 0, 721068,
 
 [node name="map_element" type="Node2D" parent="."]
 editor/display_folded = true
+script = ExtResource( 15 )
 
 [node name="exposed_electric" parent="map_element" instance=ExtResource( 5 )]
 position = Vector2( 536, 136 )
@@ -803,5 +805,5 @@ position = Vector2( 2632, 456 )
 [node name="hole_destroyer115" parent="map_element" instance=ExtResource( 12 )]
 position = Vector2( 2648, 456 )
 
-[node name="player" parent="." instance=ExtResource( 15 )]
+[node name="player" parent="." instance=ExtResource( 16 )]
 position = Vector2( 58.0532, 118.63 )
