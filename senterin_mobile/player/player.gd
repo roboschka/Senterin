@@ -366,7 +366,11 @@ func _debug():
 	label.text += "\n" + str(standing_on)
 	label.text += "\n" + str(battery_duration)
 
-
+func _on_Button_pressed():
+	get_tree().paused = true
+	$gui/pause_menu.visible = true
 
 
 #end
+
+

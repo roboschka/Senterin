@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://player/light.png" type="Texture" id=5]
 [ext_resource path="res://player/gui.tscn" type="PackedScene" id=6]
 [ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://menu/buttons/pause_button.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 10 )
@@ -220,9 +221,18 @@ texture = ExtResource( 5 )
 [node name="pause_menu" parent="gui" instance=ExtResource( 7 )]
 visible = false
 
+[node name="Button" parent="gui" instance=ExtResource( 8 )]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.0
+margin_right = 0.0
+align = 2
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="small_jump_timer" to="." method="_on_small_jump_timer_timeout"]
 [connection signal="timeout" from="full_jump_timer" to="." method="_on_full_jump_timer_timeout"]
 [connection signal="timeout" from="battery_timer" to="." method="_on_battery_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="gui/Button" to="." method="_on_Button_pressed"]
