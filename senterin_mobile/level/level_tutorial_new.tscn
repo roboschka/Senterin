@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://map_element/Sprite-0003.png" type="Texture" id=2]
@@ -15,7 +15,8 @@
 [ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=13]
 [ext_resource path="res://map_element/floor.png" type="Texture" id=14]
 [ext_resource path="res://level/map_element.gd" type="Script" id=15]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://level/level_1_1_new.tscn" type="PackedScene" id=16]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 
 [sub_resource type="TileSet" id=1]
 0/name = "background"
@@ -114,7 +115,6 @@ format = 1
 tile_data = PoolIntArray( 655530, 0, 131076, 721066, 0, 0, 721067, 0, 0, 721068, 0, 0, 721069, 0, 0, 721070, 0, 0, 721071, 0, 0, 721072, 0, 0, 721073, 0, 0, 721074, 0, 0, 786489, 0, 131076, 786495, 0, 131076, 786496, 0, 131076, 786610, 0, 0, 786611, 0, 0, 852025, 0, 0, 852026, 0, 0, 852027, 0, 0, 852028, 0, 0, 852029, 0, 0, 852030, 0, 0, 852031, 0, 0, 852032, 0, 0, 852033, 0, 0, 852034, 0, 0, 852035, 0, 196608, 852147, 0, 0, 852148, 0, 0, 917684, 0, 0, 917685, 0, 0, 983221, 0, 0, 983222, 0, 0, 1048758, 0, 0, 1048759, 0, 0, 1114295, 0, 0, 1114296, 0, 0, 1179832, 0, 0, 1179833, 0, 0, 1245369, 0, 0, 1245370, 0, 0, 1310906, 0, 0, 1310907, 0, 0, 1376443, 0, 0, 1376444, 0, 0, 1441980, 0, 0, 1441981, 0, 0, 1507517, 0, 0, 1507518, 0, 0, 1573054, 0, 0, 1573055, 0, 0, 1638591, 0, 0, 1638592, 0, 0, 1704128, 0, 0, 1704129, 0, 0, 1704142, 0, 65541, 1769665, 0, 0, 1769666, 0, 0, 1769667, 0, 0, 1769668, 0, 0, 1769669, 0, 0, 1769670, 0, 0, 1769671, 0, 0, 1769672, 0, 0, 1769673, 0, 0, 1769674, 0, 0, 1769675, 0, 0, 1769676, 0, 0, 1769677, 0, 0, 1769678, 0, 0 )
 
 [node name="map_element" type="Node2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 15 )
 battery = ExtResource( 11 )
 
@@ -456,7 +456,7 @@ position = Vector2( 2552, 216 )
 
 [node name="door" parent="map_element" instance=ExtResource( 9 )]
 position = Vector2( 3280, 400 )
-destination = ExtResource( 10 )
+destination = ExtResource( 16 )
 
 [node name="battery" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1960, 184 )
@@ -806,5 +806,5 @@ position = Vector2( 2632, 456 )
 [node name="hole_destroyer115" parent="map_element" instance=ExtResource( 12 )]
 position = Vector2( 2648, 456 )
 
-[node name="player" parent="." instance=ExtResource( 16 )]
+[node name="player" parent="." instance=ExtResource( 17 )]
 position = Vector2( 58.0532, 118.63 )
