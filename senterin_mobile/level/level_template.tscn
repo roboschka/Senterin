@@ -17,7 +17,7 @@
 [ext_resource path="res://level/map_element.gd" type="Script" id=15]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
 
-[sub_resource type="TileSet" id=97]
+[sub_resource type="TileSet" id=1]
 0/name = "background"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -58,7 +58,7 @@
 2/shapes = [  ]
 2/z_index = 0
 
-[sub_resource type="TileSet" id=98]
+[sub_resource type="TileSet" id=2]
 0/name = "floor.png 0"
 0/texture = ExtResource( 14 )
 0/tex_offset = Vector2( 0, 0 )
@@ -82,7 +82,7 @@
 
 [node name="background" type="TileMap" parent="."]
 material = ExtResource( 1 )
-tile_set = SubResource( 97 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
@@ -106,7 +106,7 @@ checkpoint = ExtResource( 13 )
 
 [node name="special" type="TileMap" parent="."]
 material = ExtResource( 1 )
-tile_set = SubResource( 98 )
+tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
 

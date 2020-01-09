@@ -29,6 +29,7 @@ var is_jumping = false
 var jump_hold = true
 
 var battery_duration = 0
+var checkpoint_battery_duration = battery_duration
 var standing_on = []
 var status = []
 var disable_input = false
@@ -175,6 +176,7 @@ func _respawn():
 			position = get_parent().get_node("respawn_position").position
 			get_tree().reload_current_scene()
 		else:
+			battery_duration = checkpoint_battery_duration
 			position = current_checkpoint.position
 			get_parent().get_node("map_element")._respawn_batteries(batteries_coordinate)
 			battery_duration -= batteries_coordinate.size() * 10
@@ -353,9 +355,9 @@ func _on_Area2D_area_entered(area):
 			else:
 				battery_duration += 10
 	if area.is_in_group("checkpoint"):
-		if current_checkpoint != area:
-			current_checkpoint = area
-			batteries_coordinate.clear()
+		current_checkpoint = area
+		batteries_coordinate.clear()
+		checkpoint_battery_duration = battery_duration
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fried":
