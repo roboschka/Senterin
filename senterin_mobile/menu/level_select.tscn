@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menu/mobile_scroll_container.gd" type="Script" id=1]
 [ext_resource path="res://menu/level_backdrops/level_backdrop.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menu/level_backdrops/level2_backdrop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menu/buttons/back_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://menu/main_menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://menu/Popup.gd" type="Script" id=6]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -37,3 +38,20 @@ margin_top = 7.31511
 margin_right = 380.013
 margin_bottom = 39.3151
 back_scene = ExtResource( 5 )
+
+[node name="Popup" type="AcceptDialog" parent="."]
+visible = true
+margin_left = 417.866
+margin_top = 30.2391
+margin_right = 622.866
+margin_bottom = 107.239
+dialog_text = "Purchase All Level?"
+script = ExtResource( 6 )
+
+[node name="ToolButton" type="ToolButton" parent="."]
+margin_left = 5.34335
+margin_top = 191.447
+margin_right = 75.3434
+margin_bottom = 213.447
+text = "Purchase"
+[connection signal="pressed" from="ToolButton" to="Popup" method="_on_ToolButton_pressed"]

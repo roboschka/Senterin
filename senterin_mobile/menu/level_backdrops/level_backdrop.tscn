@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ui/splash_screen.png" type="Texture" id=1]
 [ext_resource path="res://menu/buttons/level_select_button.tscn" type="PackedScene" id=2]
-[ext_resource path="res://level/level_tutorial.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/level_tutorial_new.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/level_1_1_new.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level/level_1_2_new.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/level_1_3_new.tscn" type="PackedScene" id=6]
