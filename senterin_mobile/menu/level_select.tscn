@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://menu/level_select.gd" type="Script" id=1]
 [ext_resource path="res://menu/mobile_scroll_container.gd" type="Script" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://menu/main_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://menu/Popup.gd" type="Script" id=10]
 [ext_resource path="res://ui/button_click.wav" type="AudioStream" id=11]
+[ext_resource path="res://bgm/main_menu.ogg" type="AudioStream" id=12]
+[ext_resource path="res://bgm/bgm_loop.gd" type="Script" id=13]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -74,5 +76,9 @@ text = "Purchase"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+script = ExtResource( 13 )
 [connection signal="confirmed" from="Popup" to="." method="_on_Popup_confirmed"]
 [connection signal="pressed" from="ToolButton" to="Popup" method="_on_ToolButton_pressed"]

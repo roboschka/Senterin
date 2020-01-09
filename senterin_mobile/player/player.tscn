@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://player/light.png" type="Texture" id=5]
 [ext_resource path="res://player/gui.tscn" type="PackedScene" id=6]
 [ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://bgm/another one.ogg" type="AudioStream" id=8]
+[ext_resource path="res://bgm/bgm_loop.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 10 )
@@ -221,6 +223,10 @@ texture = ExtResource( 5 )
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+script = ExtResource( 9 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="small_jump_timer" to="." method="_on_small_jump_timer_timeout"]
 [connection signal="timeout" from="full_jump_timer" to="." method="_on_full_jump_timer_timeout"]

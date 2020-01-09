@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://menu/pixel-1-24.tres" type="DynamicFont" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://map_element/Sprite-0003.png" type="Texture" id=5]
 [ext_resource path="res://menu/transitions/FadeIn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://menu/transitions/FadeOut.tscn" type="PackedScene" id=7]
+[ext_resource path="res://bgm/main_menu.ogg" type="AudioStream" id=8]
+[ext_resource path="res://bgm/bgm_loop.gd" type="Script" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Sprite-0003.png 0"
@@ -83,5 +85,11 @@ visible = false
 
 [node name="FadeOut" parent="." instance=ExtResource( 7 )]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+script = ExtResource( 9 )
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
 [connection signal="fade_finished" from="FadeOut" to="." method="_on_FadeOut_fade_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]
