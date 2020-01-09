@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/mobile_scroll_container.gd" type="Script" id=1]
 [ext_resource path="res://menu/level_backdrops/level_backdrop.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menu/level_backdrops/level2_backdrop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menu/buttons/back_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menu/main_menu.tscn" type="PackedScene" id=5]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 12.0
 scroll_vertical_enabled = false
 script = ExtResource( 1 )
 
@@ -18,6 +21,8 @@ margin_bottom = 216.0
 custom_constants/separation = 0
 
 [node name="level_backdrop" parent="ScrollContainer/HBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 384.0
 margin_bottom = 216.0
 
@@ -25,3 +30,10 @@ margin_bottom = 216.0
 margin_left = 384.0
 margin_right = 768.0
 margin_bottom = 216.0
+
+[node name="Button" parent="." instance=ExtResource( 4 )]
+margin_left = 316.013
+margin_top = 7.31511
+margin_right = 380.013
+margin_bottom = 39.3151
+back_scene = ExtResource( 5 )

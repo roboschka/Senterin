@@ -5,13 +5,17 @@
 [ext_resource path="res://menu/pixel-1-14.tres" type="DynamicFont" id=3]
 
 [node name="Button" type="Button"]
+margin_top = 1.0
 margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 60 )
+margin_bottom = 65.0
+rect_min_size = Vector2( 64, 64 )
+focus_mode = 0
+enabled_focus_mode = 0
 flat = true
 align = 0
 script = ExtResource( 1 )
 has_another_scene = 1
+level = "1"
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
@@ -28,3 +32,4 @@ custom_fonts/font = ExtResource( 3 )
 text = "TUT"
 align = 1
 valign = 1
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

@@ -1,6 +1,6 @@
 extends Control
 
-var scene_to_load = load("res://level/level_1_1.tscn")
+var scene_to_load = load("res://menu/level_select.tscn")
 
 func _ready():
 	#Test
