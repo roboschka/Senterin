@@ -109,6 +109,10 @@ func _input(event):
 		if Input.is_action_just_pressed("pause"):
 			get_tree().paused = true
 			$gui/pause_menu.visible = true
+			for i in $gui.get_children():
+				if not i is AudioStreamPlayer and not i.is_in_group("pause_menu"):
+					i.visible = false
+
 
 func _movement():
 	#gravity

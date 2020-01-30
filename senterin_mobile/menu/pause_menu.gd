@@ -14,6 +14,10 @@ func _on_Button_pressed(has_another_scene):
 	else:
 		get_tree().paused = false
 		visible = false
+		if get_parent():
+			for i in get_parent().get_children():
+				if not i is AudioStreamPlayer and not i.is_in_group("pause_menu"):
+					i.visible = true
 
 func _on_FadeIn_fade_finished():
 	get_tree().paused = false

@@ -49,8 +49,7 @@ alignment = 1
 
 [node name="buttons" type="VBoxContainer" parent="menu/centre_row"]
 margin_left = 76.0
-margin_top = 20.0
-margin_right = 224.0
+margin_right = 300.0
 margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -61,11 +60,14 @@ alignment = 1
 anchor_left = 0.0
 anchor_right = 0.0
 margin_left = 0.0
-margin_right = 148.0
+margin_top = 4.0
+margin_right = 224.0
+margin_bottom = 52.0
 
 [node name="button_back" parent="menu/centre_row/buttons" instance=ExtResource( 5 )]
-margin_top = 68.0
-margin_bottom = 116.0
+margin_top = 72.0
+margin_right = 224.0
+margin_bottom = 120.0
 has_another_scene = 1
 
 [node name="TileMap" parent="." instance=ExtResource( 6 )]
