@@ -18,7 +18,7 @@ _global_script_class_icons={
 config/name="senterin"
 run/main_scene="res://menu/main_menu.tscn"
 boot_splash/image="res://ui/splash_screen.png"
-config/icon="res://icon.png"
+config/icon="res://icon_1.png"
 
 [autoload]
 
