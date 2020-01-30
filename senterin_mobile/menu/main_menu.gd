@@ -6,8 +6,10 @@ func _ready():
 	#Test
 	$FadeOut.show()
 	$FadeOut.fade_out()
-	for button in $menu/buttons.get_children():
-		button.connect("pressed", self, "_on_Button_pressed",[button.has_another_scene])
+	for button in $menu.get_children():
+		if (button is HBoxContainer):
+			for btn in button.get_children():
+				btn.connect("pressed", self, "_on_Button_pressed",[btn.has_another_scene])
 		
 func _on_Button_pressed(has_another_scene):
 	if(has_another_scene == 0):
