@@ -82,7 +82,7 @@ anchor_bottom = 1.0
 margin_left = 50.0
 margin_top = 30.0
 margin_right = -50.0
-margin_bottom = -20.0
+margin_bottom = -23.0
 
 [node name="label_title" type="Label" parent="menu"]
 margin_right = 284.0
@@ -93,24 +93,17 @@ text = "SENTERIN"
 align = 1
 valign = 1
 
-[node name="center_row" type="HBoxContainer" parent="menu"]
+[node name="buttons" type="HBoxContainer" parent="menu"]
 margin_top = 35.0
 margin_right = 284.0
-margin_bottom = 166.0
-size_flags_vertical = 3
+margin_bottom = 163.0
 alignment = 1
 
-[node name="buttons" type="VBoxContainer" parent="menu/center_row"]
-margin_right = 284.0
-margin_bottom = 131.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="button_play" parent="menu/center_row/buttons" instance=ExtResource( 6 )]
-margin_top = 35.0
-margin_right = 284.0
-margin_bottom = 95.0
+[node name="button_play" parent="menu/buttons" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 38.0
+margin_right = 245.0
 
 [node name="FadeIn" parent="." instance=ExtResource( 7 )]
 visible = false

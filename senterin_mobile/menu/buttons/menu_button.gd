@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 export(int) var has_another_scene;
 
