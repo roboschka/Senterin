@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://menu/buttons(play)1.png" type="Texture" id=1]
-[ext_resource path="res://menu/buttons(play)2.png" type="Texture" id=2]
+[ext_resource path="res://ui/buttons(play)1.png" type="Texture" id=1]
+[ext_resource path="res://ui/buttons(play)2.png" type="Texture" id=2]
 [ext_resource path="res://menu/buttons/menu_button.gd" type="Script" id=3]
 [ext_resource path="res://menu/pixel-1-14.tres" type="DynamicFont" id=4]
 [ext_resource path="res://ui/button_click.wav" type="AudioStream" id=5]
+
 
 [node name="Button" type="TextureButton"]
 anchor_left = 0.5

@@ -9,13 +9,13 @@
 [ext_resource path="res://map_element/motor_oil.tscn" type="PackedScene" id=7]
 [ext_resource path="res://map_element/hidden_tile.tscn" type="PackedScene" id=8]
 [ext_resource path="res://map_element/door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://map_element/battery.tscn" type="PackedScene" id=10]
-[ext_resource path="res://map_element/hole_destroyer.tscn" type="PackedScene" id=11]
-[ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=12]
-[ext_resource path="res://map_element/floor.png" type="Texture" id=13]
-[ext_resource path="res://level/map_element.gd" type="Script" id=14]
-[ext_resource path="res://level/level_1_1_new.tscn" type="PackedScene" id=15]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://map_element/battery.tscn" type="PackedScene" id=11]
+[ext_resource path="res://map_element/hole_destroyer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=13]
+[ext_resource path="res://map_element/floor.png" type="Texture" id=14]
+[ext_resource path="res://level/map_element.gd" type="Script" id=15]
+[ext_resource path="res://level/level_1_1_new.tscn" type="PackedScene" id=16]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
 
 [sub_resource type="TileSet" id=1]
 0/name = "background"
@@ -70,6 +70,7 @@
 0/autotile/spacing = 0
 0/autotile/occluder_map = [  ]
 0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
 0/autotile/z_index_map = [  ]
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
@@ -101,9 +102,9 @@ exposed_electric_vertical = ExtResource( 6 )
 motor_oil = ExtResource( 7 )
 hidden_tile = ExtResource( 8 )
 door = ExtResource( 9 )
-battery = ExtResource( 10 )
-hole_destroyer = ExtResource( 11 )
-checkpoint = ExtResource( 12 )
+battery = ExtResource( 11 )
+hole_destroyer = ExtResource( 12 )
+checkpoint = ExtResource( 13 )
 
 [node name="special" type="TileMap" parent="."]
 material = ExtResource( 1 )
