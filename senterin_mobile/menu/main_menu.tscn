@@ -83,6 +83,10 @@ margin_left = 50.0
 margin_top = 30.0
 margin_right = -50.0
 margin_bottom = -23.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="label_title" type="Label" parent="menu"]
 margin_right = 284.0
@@ -94,16 +98,28 @@ align = 1
 valign = 1
 
 [node name="buttons" type="HBoxContainer" parent="menu"]
-margin_top = 35.0
+margin_top = 51.0
 margin_right = 284.0
-margin_bottom = 163.0
+margin_bottom = 99.0
 alignment = 1
 
 [node name="button_play" parent="menu/buttons" instance=ExtResource( 6 )]
 anchor_left = 0.0
 anchor_right = 0.0
-margin_left = 38.0
-margin_right = 245.0
+margin_left = 68.0
+margin_right = 216.0
+
+[node name="buttons2" type="HBoxContainer" parent="menu"]
+margin_top = 119.0
+margin_right = 284.0
+margin_bottom = 167.0
+alignment = 1
+
+[node name="button_play" parent="menu/buttons2" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 68.0
+margin_right = 216.0
 
 [node name="FadeIn" parent="." instance=ExtResource( 7 )]
 visible = false
