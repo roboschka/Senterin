@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/buttons(play)1.png-b5d05d0adc0bc318b16040158ec372cc.stex"
+path="res://.import/buttons(back)1.png-0bb038994dfdd5f0d2dd4bf101f8db1c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/buttons(play)1.png"
-dest_files=[ "res://.import/buttons(play)1.png-b5d05d0adc0bc318b16040158ec372cc.stex" ]
+source_file="res://ui/buttons(back)1.png"
+dest_files=[ "res://.import/buttons(back)1.png-0bb038994dfdd5f0d2dd4bf101f8db1c.stex" ]
 
 [params]
 

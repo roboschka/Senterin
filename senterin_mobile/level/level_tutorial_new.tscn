@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://map_element/Sprite-0003.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://map_element/motor_oil.tscn" type="PackedScene" id=7]
 [ext_resource path="res://map_element/hidden_tile.tscn" type="PackedScene" id=8]
 [ext_resource path="res://map_element/door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://level/level_1_1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://map_element/battery.tscn" type="PackedScene" id=11]
 [ext_resource path="res://map_element/hole_destroyer.tscn" type="PackedScene" id=12]
 [ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=13]
@@ -71,6 +70,7 @@
 0/autotile/spacing = 0
 0/autotile/occluder_map = [  ]
 0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
 0/autotile/z_index_map = [  ]
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
@@ -102,7 +102,6 @@ exposed_electric_vertical = ExtResource( 6 )
 motor_oil = ExtResource( 7 )
 hidden_tile = ExtResource( 8 )
 door = ExtResource( 9 )
-destination = ExtResource( 10 )
 battery = ExtResource( 11 )
 hole_destroyer = ExtResource( 12 )
 checkpoint = ExtResource( 13 )

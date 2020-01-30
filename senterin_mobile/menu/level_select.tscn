@@ -51,10 +51,8 @@ scene_to_load = ExtResource( 7 )
 level = "2"
 
 [node name="Button" parent="." instance=ExtResource( 8 )]
-margin_left = 316.013
-margin_top = 7.31511
-margin_right = 380.013
-margin_bottom = 39.3151
+margin_left = 316.0
+margin_top = 7.0
 back_scene = ExtResource( 9 )
 
 [node name="Popup" type="AcceptDialog" parent="."]
