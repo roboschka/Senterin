@@ -1,18 +1,28 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/buttons/menu_button.gd" type="Script" id=1]
 [ext_resource path="res://menu/pixel-1-14.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ui/button_click.wav" type="AudioStream" id=3]
+[ext_resource path="res://ui/buttons(resume)1.png" type="Texture" id=4]
+[ext_resource path="res://ui/buttons(resume)2.png" type="Texture" id=5]
 
-[node name="Button" type="Button"]
-rect_min_size = Vector2( 180, 60 )
+[node name="Button" type="TextureButton"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -74.0
+margin_right = 74.0
+margin_bottom = 48.0
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
-align = 0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 2 )

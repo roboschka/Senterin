@@ -16,6 +16,9 @@ pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 scene_to_load = ExtResource( 2 )
 
 [node name="menu" type="VBoxContainer" parent="."]
@@ -42,22 +45,27 @@ margin_top = 35.0
 margin_right = 300.0
 margin_bottom = 160.0
 size_flags_vertical = 3
+alignment = 1
 
 [node name="buttons" type="VBoxContainer" parent="menu/centre_row"]
-margin_right = 300.0
+margin_left = 76.0
+margin_top = 20.0
+margin_right = 224.0
 margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
+custom_constants/separation = 20
 alignment = 1
 
 [node name="button_resume" parent="menu/centre_row/buttons" instance=ExtResource( 4 )]
-margin_right = 300.0
-margin_bottom = 60.0
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_right = 148.0
 
 [node name="button_back" parent="menu/centre_row/buttons" instance=ExtResource( 5 )]
-margin_top = 64.0
-margin_right = 300.0
-margin_bottom = 124.0
+margin_top = 68.0
+margin_bottom = 116.0
 has_another_scene = 1
 
 [node name="TileMap" parent="." instance=ExtResource( 6 )]
