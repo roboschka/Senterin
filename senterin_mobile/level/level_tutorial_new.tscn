@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://map_element/Sprite-0003.png" type="Texture" id=2]
@@ -9,14 +9,13 @@
 [ext_resource path="res://map_element/motor_oil.tscn" type="PackedScene" id=7]
 [ext_resource path="res://map_element/hidden_tile.tscn" type="PackedScene" id=8]
 [ext_resource path="res://map_element/door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://level/level_1_1.tscn" type="PackedScene" id=10]
-[ext_resource path="res://map_element/battery.tscn" type="PackedScene" id=11]
-[ext_resource path="res://map_element/hole_destroyer.tscn" type="PackedScene" id=12]
-[ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=13]
-[ext_resource path="res://map_element/floor.png" type="Texture" id=14]
-[ext_resource path="res://level/map_element.gd" type="Script" id=15]
-[ext_resource path="res://level/level_1_1_new.tscn" type="PackedScene" id=16]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=17]
+[ext_resource path="res://map_element/battery.tscn" type="PackedScene" id=10]
+[ext_resource path="res://map_element/hole_destroyer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://map_element/checkpoint.tscn" type="PackedScene" id=12]
+[ext_resource path="res://map_element/floor.png" type="Texture" id=13]
+[ext_resource path="res://level/map_element.gd" type="Script" id=14]
+[ext_resource path="res://level/level_1_1_new.tscn" type="PackedScene" id=15]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
 
 [sub_resource type="TileSet" id=1]
 0/name = "background"
@@ -61,7 +60,7 @@
 
 [sub_resource type="TileSet" id=2]
 0/name = "floor.png 0"
-0/texture = ExtResource( 14 )
+0/texture = ExtResource( 13 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 128, 96 )
@@ -102,10 +101,9 @@ exposed_electric_vertical = ExtResource( 6 )
 motor_oil = ExtResource( 7 )
 hidden_tile = ExtResource( 8 )
 door = ExtResource( 9 )
-destination = ExtResource( 10 )
-battery = ExtResource( 11 )
-hole_destroyer = ExtResource( 12 )
-checkpoint = ExtResource( 13 )
+battery = ExtResource( 10 )
+hole_destroyer = ExtResource( 11 )
+checkpoint = ExtResource( 12 )
 
 [node name="special" type="TileMap" parent="."]
 material = ExtResource( 1 )
@@ -115,8 +113,8 @@ format = 1
 tile_data = PoolIntArray( 655530, 0, 131076, 721066, 0, 0, 721067, 0, 0, 721068, 0, 0, 721069, 0, 0, 721070, 0, 0, 721071, 0, 0, 721072, 0, 0, 721073, 0, 0, 721074, 0, 0, 786489, 0, 131076, 786495, 0, 131076, 786496, 0, 131076, 786610, 0, 0, 786611, 0, 0, 852025, 0, 0, 852026, 0, 0, 852027, 0, 0, 852028, 0, 0, 852029, 0, 0, 852030, 0, 0, 852031, 0, 0, 852032, 0, 0, 852033, 0, 0, 852034, 0, 0, 852035, 0, 196608, 852147, 0, 0, 852148, 0, 0, 917684, 0, 0, 917685, 0, 0, 983221, 0, 0, 983222, 0, 0, 1048758, 0, 0, 1048759, 0, 0, 1114295, 0, 0, 1114296, 0, 0, 1179832, 0, 0, 1179833, 0, 0, 1245369, 0, 0, 1245370, 0, 0, 1310906, 0, 0, 1310907, 0, 0, 1376443, 0, 0, 1376444, 0, 0, 1441980, 0, 0, 1441981, 0, 0, 1507517, 0, 0, 1507518, 0, 0, 1573054, 0, 0, 1573055, 0, 0, 1638591, 0, 0, 1638592, 0, 0, 1704128, 0, 0, 1704129, 0, 0, 1704142, 0, 65541, 1769665, 0, 0, 1769666, 0, 0, 1769667, 0, 0, 1769668, 0, 0, 1769669, 0, 0, 1769670, 0, 0, 1769671, 0, 0, 1769672, 0, 0, 1769673, 0, 0, 1769674, 0, 0, 1769675, 0, 0, 1769676, 0, 0, 1769677, 0, 0, 1769678, 0, 0 )
 
 [node name="map_element" type="Node2D" parent="."]
-script = ExtResource( 15 )
-battery = ExtResource( 11 )
+script = ExtResource( 14 )
+battery = ExtResource( 10 )
 
 [node name="exposed_electric" parent="map_element" instance=ExtResource( 5 )]
 position = Vector2( 536, 136 )
@@ -456,355 +454,355 @@ position = Vector2( 2552, 216 )
 
 [node name="door" parent="map_element" instance=ExtResource( 9 )]
 position = Vector2( 3280, 400 )
-destination = ExtResource( 16 )
+destination = ExtResource( 15 )
 
-[node name="battery" parent="map_element" instance=ExtResource( 11 )]
+[node name="battery" parent="map_element" instance=ExtResource( 10 )]
 position = Vector2( 1960, 184 )
 
-[node name="hole_destroyer" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 200, 200 )
 
-[node name="hole_destroyer2" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer2" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 216, 200 )
 
-[node name="hole_destroyer3" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer3" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 232, 200 )
 
-[node name="hole_destroyer4" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer4" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 248, 200 )
 
-[node name="hole_destroyer5" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer5" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 264, 200 )
 
-[node name="hole_destroyer6" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer6" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 280, 200 )
 
-[node name="hole_destroyer7" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer7" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 296, 200 )
 
-[node name="hole_destroyer8" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer8" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 312, 200 )
 
-[node name="hole_destroyer9" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer9" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 328, 200 )
 
-[node name="hole_destroyer10" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer10" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 344, 200 )
 
-[node name="hole_destroyer11" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer11" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 360, 200 )
 
-[node name="hole_destroyer12" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer12" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 376, 200 )
 
-[node name="hole_destroyer13" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer13" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 392, 200 )
 
-[node name="hole_destroyer14" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer14" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 408, 200 )
 
-[node name="hole_destroyer15" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer15" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -264, 280 )
 
-[node name="hole_destroyer16" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer16" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -248, 280 )
 
-[node name="hole_destroyer17" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer17" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -232, 280 )
 
-[node name="hole_destroyer18" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer18" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -216, 280 )
 
-[node name="hole_destroyer19" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer19" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -200, 280 )
 
-[node name="hole_destroyer20" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer20" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -184, 280 )
 
-[node name="hole_destroyer21" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer21" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -168, 280 )
 
-[node name="hole_destroyer22" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer22" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -152, 280 )
 
-[node name="hole_destroyer23" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer23" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -136, 280 )
 
-[node name="hole_destroyer24" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer24" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -120, 280 )
 
-[node name="hole_destroyer25" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer25" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -104, 280 )
 
-[node name="hole_destroyer26" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer26" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -88, 280 )
 
-[node name="hole_destroyer27" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer27" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -72, 280 )
 
-[node name="hole_destroyer28" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer28" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -56, 280 )
 
-[node name="hole_destroyer29" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer29" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -40, 280 )
 
-[node name="hole_destroyer30" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer30" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -24, 280 )
 
-[node name="hole_destroyer31" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer31" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( -8, 280 )
 
-[node name="hole_destroyer32" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer32" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 728, 328 )
 
-[node name="hole_destroyer33" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer33" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 744, 328 )
 
-[node name="hole_destroyer34" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer34" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 760, 328 )
 
-[node name="hole_destroyer35" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer35" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 776, 328 )
 
-[node name="hole_destroyer36" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer36" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 792, 328 )
 
-[node name="hole_destroyer37" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer37" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 808, 328 )
 
-[node name="hole_destroyer38" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer38" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 824, 328 )
 
-[node name="hole_destroyer39" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer39" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 840, 328 )
 
-[node name="hole_destroyer40" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer40" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 856, 328 )
 
-[node name="hole_destroyer41" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer41" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 872, 328 )
 
-[node name="hole_destroyer42" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer42" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1096, 328 )
 
-[node name="hole_destroyer43" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer43" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1112, 328 )
 
-[node name="hole_destroyer44" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer44" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1128, 328 )
 
-[node name="hole_destroyer45" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer45" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1144, 328 )
 
-[node name="hole_destroyer46" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer46" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1256, 328 )
 
-[node name="hole_destroyer47" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer47" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1272, 328 )
 
-[node name="hole_destroyer48" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer48" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1288, 328 )
 
-[node name="hole_destroyer49" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer49" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1304, 328 )
 
-[node name="hole_destroyer50" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer50" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1320, 328 )
 
-[node name="hole_destroyer51" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer51" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1336, 328 )
 
-[node name="hole_destroyer52" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer52" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1352, 328 )
 
-[node name="hole_destroyer53" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer53" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1368, 328 )
 
-[node name="hole_destroyer54" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer54" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1384, 328 )
 
-[node name="hole_destroyer55" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer55" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1400, 328 )
 
-[node name="hole_destroyer56" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer56" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1416, 328 )
 
-[node name="hole_destroyer57" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer57" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1432, 328 )
 
-[node name="hole_destroyer58" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer58" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1448, 328 )
 
-[node name="hole_destroyer59" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer59" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1464, 328 )
 
-[node name="hole_destroyer60" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer60" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1480, 328 )
 
-[node name="hole_destroyer61" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer61" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1624, 456 )
 
-[node name="hole_destroyer62" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer62" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1640, 456 )
 
-[node name="hole_destroyer63" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer63" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1656, 456 )
 
-[node name="hole_destroyer64" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer64" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1672, 456 )
 
-[node name="hole_destroyer65" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer65" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1688, 456 )
 
-[node name="hole_destroyer66" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer66" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1704, 456 )
 
-[node name="hole_destroyer67" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer67" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1720, 456 )
 
-[node name="hole_destroyer68" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer68" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1736, 456 )
 
-[node name="hole_destroyer69" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer69" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1752, 456 )
 
-[node name="hole_destroyer70" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer70" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1768, 456 )
 
-[node name="hole_destroyer71" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer71" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1784, 456 )
 
-[node name="hole_destroyer72" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer72" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1800, 456 )
 
-[node name="hole_destroyer73" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer73" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1816, 456 )
 
-[node name="hole_destroyer74" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer74" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1832, 456 )
 
-[node name="hole_destroyer75" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer75" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1848, 456 )
 
-[node name="hole_destroyer76" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer76" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1864, 456 )
 
-[node name="hole_destroyer77" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer77" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1880, 456 )
 
-[node name="hole_destroyer78" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer78" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1896, 456 )
 
-[node name="hole_destroyer79" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer79" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 1912, 456 )
 
-[node name="hole_destroyer80" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer80" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2088, 456 )
 
-[node name="hole_destroyer81" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer81" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2104, 456 )
 
-[node name="hole_destroyer82" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer82" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2120, 456 )
 
-[node name="hole_destroyer83" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer83" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2136, 456 )
 
-[node name="hole_destroyer84" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer84" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2152, 456 )
 
-[node name="hole_destroyer85" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer85" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2168, 456 )
 
-[node name="hole_destroyer86" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer86" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2184, 456 )
 
-[node name="hole_destroyer87" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer87" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2200, 456 )
 
-[node name="hole_destroyer88" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer88" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2216, 456 )
 
-[node name="hole_destroyer89" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer89" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2232, 456 )
 
-[node name="hole_destroyer90" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer90" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2248, 456 )
 
-[node name="hole_destroyer91" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer91" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2264, 456 )
 
-[node name="hole_destroyer92" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer92" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2280, 456 )
 
-[node name="hole_destroyer93" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer93" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2296, 456 )
 
-[node name="hole_destroyer94" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer94" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2312, 456 )
 
-[node name="hole_destroyer95" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer95" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2328, 456 )
 
-[node name="hole_destroyer96" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer96" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2344, 456 )
 
-[node name="hole_destroyer97" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer97" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2360, 456 )
 
-[node name="hole_destroyer98" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer98" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2376, 456 )
 
-[node name="hole_destroyer99" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer99" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2392, 456 )
 
-[node name="hole_destroyer100" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer100" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2408, 456 )
 
-[node name="hole_destroyer101" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer101" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2424, 456 )
 
-[node name="hole_destroyer102" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer102" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2440, 456 )
 
-[node name="hole_destroyer103" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer103" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2456, 456 )
 
-[node name="hole_destroyer104" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer104" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2472, 456 )
 
-[node name="hole_destroyer105" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer105" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2488, 456 )
 
-[node name="hole_destroyer106" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer106" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2504, 456 )
 
-[node name="hole_destroyer107" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer107" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2520, 456 )
 
-[node name="hole_destroyer108" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer108" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2536, 456 )
 
-[node name="hole_destroyer109" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer109" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2552, 456 )
 
-[node name="hole_destroyer110" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer110" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2568, 456 )
 
-[node name="hole_destroyer111" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer111" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2584, 456 )
 
-[node name="hole_destroyer112" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer112" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2600, 456 )
 
-[node name="hole_destroyer113" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer113" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2616, 456 )
 
-[node name="hole_destroyer114" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer114" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2632, 456 )
 
-[node name="hole_destroyer115" parent="map_element" instance=ExtResource( 12 )]
+[node name="hole_destroyer115" parent="map_element" instance=ExtResource( 11 )]
 position = Vector2( 2648, 456 )
 
-[node name="player" parent="." instance=ExtResource( 17 )]
+[node name="player" parent="." instance=ExtResource( 16 )]
 position = Vector2( 58.0532, 118.63 )
