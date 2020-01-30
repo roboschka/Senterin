@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://shader/pixel_perfect.tres" type="Material" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://ui/pixel_1.fnt" type="BitmapFont" id=4]
 [ext_resource path="res://player/light.png" type="Texture" id=5]
 [ext_resource path="res://player/gui.tscn" type="PackedScene" id=6]
-[ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://bgm/another one.ogg" type="AudioStream" id=8]
 [ext_resource path="res://bgm/bgm_loop.gd" type="Script" id=9]
 
@@ -136,7 +135,6 @@ shape = SubResource( 1 )
 [node name="Area2D" type="Area2D" parent="." groups=[
 "player",
 ]]
-editor/display_folded = true
 position = Vector2( 0, -10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -145,7 +143,6 @@ shape = SubResource( 2 )
 [node name="Area2D2" type="Area2D" parent="." groups=[
 "light",
 ]]
-editor/display_folded = true
 visible = false
 position = Vector2( 0, -8 )
 
@@ -218,9 +215,6 @@ z_index = 1
 texture = ExtResource( 5 )
 
 [node name="gui" parent="." instance=ExtResource( 6 )]
-
-[node name="pause_menu" parent="gui" instance=ExtResource( 7 )]
-visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

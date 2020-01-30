@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://menu/level_select.gd" type="Script" id=1]
 [ext_resource path="res://menu/mobile_scroll_container.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://ui/button_click.wav" type="AudioStream" id=11]
 [ext_resource path="res://bgm/main_menu.ogg" type="AudioStream" id=12]
 [ext_resource path="res://bgm/bgm_loop.gd" type="Script" id=13]
+[ext_resource path="res://menu/pixel-1-14.tres" type="DynamicFont" id=14]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -68,11 +69,17 @@ dialog_text = "Purchase All Level?"
 script = ExtResource( 10 )
 
 [node name="ToolButton" type="ToolButton" parent="."]
-margin_left = 5.34335
-margin_top = 191.447
-margin_right = 75.3434
-margin_bottom = 213.447
+margin_left = 5.0
+margin_top = 191.0
+margin_right = 105.0
+margin_bottom = 218.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 14 )
+enabled_focus_mode = 0
 text = "Purchase"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )

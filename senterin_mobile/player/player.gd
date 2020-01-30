@@ -184,6 +184,8 @@ func _respawn():
 			position = current_checkpoint.position
 			get_parent().get_node("map_element")._respawn_batteries(batteries_coordinate)
 			battery_duration -= batteries_coordinate.size() * 10
+			if battery_duration < 0:
+				battery_duration = 0
 			batteries_coordinate.clear()
 
 func _status():
@@ -359,9 +361,10 @@ func _on_Area2D_area_entered(area):
 			else:
 				battery_duration += 10
 	if area.is_in_group("checkpoint"):
-		current_checkpoint = area
-		batteries_coordinate.clear()
-		checkpoint_battery_duration = battery_duration
+		if current_checkpoint != area:
+			current_checkpoint = area
+			batteries_coordinate.clear()
+			checkpoint_battery_duration = battery_duration
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fried":
