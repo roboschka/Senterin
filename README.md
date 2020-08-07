@@ -3,6 +3,8 @@
 
 The player plays a character who is stuck in a basement-like environment and given a _magic_ flashlight that can hidebound invisible tiles. The game drives players to use their puzzle-solving skills to finish the level.
 
+![](https://github.com/lancenix/Senterin/blob/master/Screen%20Shot%202020-08-08%20at%2000.39.50.png)
+
 ## Team Size
 
 ### Programming
@@ -47,7 +49,7 @@ The player plays a character who is stuck in a basement-like environment and giv
 
 	- Level Designer
 
-	- Artist
+	- Art Director
 
 	- SFX Engineer
 
